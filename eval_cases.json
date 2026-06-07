@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Attention Is All You Need",
+    "summary": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train.",
+    "source": "Arxiv",
+    "expected": "signal",
+    "min_score": 8
+  },
+  {
+    "title": "Scaling Laws for Neural Language Models",
+    "summary": "We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude.",
+    "source": "Arxiv",
+    "expected": "signal",
+    "min_score": 8
+  },
+  {
+    "title": "Constitutional AI: Harmlessness from AI Feedback",
+    "summary": "We present Constitutional AI, a method for training AI systems to be helpful, harmless, and honest using a set of principles and AI-generated feedback rather than human feedback alone. We demonstrate the approach produces models that are less harmful while remaining helpful.",
+    "source": "Arxiv",
+    "expected": "signal",
+    "min_score": 7
+  },
+  {
+    "title": "GPT-4 Technical Report",
+    "summary": "We report the development of GPT-4, a large multimodal model capable of processing image and text inputs and producing text outputs. GPT-4 demonstrates human-level performance on various professional and academic benchmarks including passing a simulated bar exam with a score around the top 10% of test takers.",
+    "source": "OpenAI",
+    "expected": "signal",
+    "min_score": 7
+  },
+  {
+    "title": "Evaluating Large Language Models Trained on Code",
+    "summary": "We introduce Codex, a GPT language model fine-tuned on publicly available code from GitHub, and study its Python code-writing capabilities. A distinct version of Codex solves 28.8% of the HumanEval benchmark problems. We release the HumanEval dataset to evaluate the correctness of model-generated code.",
+    "source": "Arxiv",
+    "expected": "signal",
+    "min_score": 7
+  },
+  {
+    "title": "Uber deploys LLM-based code review at scale, reduces review time by 35%",
+    "summary": "Uber engineering blog post detailing their 18-month rollout of LLM-assisted code review across 4,000 engineers. Includes methodology, A/B test results showing 35% reduction in review cycle time, false positive rates, and lessons learned from three failed approaches before finding what worked.",
+    "source": "Uber Engineering Blog",
+    "expected": "signal",
+    "min_score": 8
+  },
+  {
+    "title": "Measuring Massive Multitask Language Understanding",
+    "summary": "We introduce the MMLU benchmark covering 57 subjects including mathematics, history, law, and medicine. We find that while most recent models show near random-chance accuracy, the largest GPT-3 model improves over random chance by almost 20 percentage points on average.",
+    "source": "Arxiv",
+    "expected": "signal",
+    "min_score": 7
+  },
+  {
+    "title": "Chip Huyen: Lessons from six months running LLMs in production",
+    "summary": "After deploying LLM-powered features to 2M users, here is what actually broke: latency variance was 10x worse than benchmarks suggested, context window management consumed more engineering time than model selection, and our eval suite caught only 40% of production failures. Detailed post-mortem with specific numbers.",
+    "source": "Chip Huyen Blog",
+    "expected": "signal",
+    "min_score": 9
+  },
+  {
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "summary": "We analyze how language model performance degrades as a function of where relevant information appears in the input context. Models perform significantly worse when relevant information is in the middle of the context versus the beginning or end, with performance dropping up to 20 percentage points.",
+    "source": "Arxiv",
+    "expected": "signal",
+    "min_score": 8
+  },
+  {
+    "title": "Simon Willison: What I learned building 50 LLM applications",
+    "summary": "Detailed technical retrospective on building 50 real LLM-powered applications over two years. Covers prompt engineering patterns that work, common failure modes, cost management, and why most demos fail in production. Includes specific code examples and measured outcomes.",
+    "source": "Simon Willison",
+    "expected": "signal",
+    "min_score": 9
+  },
+  {
+    "title": "TechVenture AI raises $500M Series C to revolutionize enterprise intelligence",
+    "summary": "TechVenture AI today announced a $500 million Series C funding round led by prominent venture capital firms. The company's AI platform helps enterprises unlock the power of their data using cutting-edge artificial intelligence. CEO John Smith said 'We are excited to partner with world-class investors as we transform how businesses operate.'",
+    "source": "TechCrunch",
+    "expected": "hype",
+    "max_score": 3
+  },
+  {
+    "title": "Why AI is the most transformative technology since the internet",
+    "summary": "Artificial intelligence is poised to revolutionize every industry and reshape human civilization as we know it. From healthcare to finance to transportation, AI will fundamentally change how we live and work. Companies that don't embrace AI now risk being left behind in this new era of intelligent computing.",
+    "source": "Forbes",
+    "expected": "hype",
+    "max_score": 2
+  },
+  {
+    "title": "MegaCorp and AI Startup announce strategic partnership to transform customer experience",
+    "summary": "MegaCorp Inc. and NextGenAI today announced a multi-year strategic partnership to bring AI-powered solutions to MegaCorp's global customer base. The partnership will leverage NextGenAI's proprietary platform to deliver personalized experiences at scale. Both companies expressed excitement about the transformative potential of this collaboration.",
+    "source": "PR Newswire",
+    "expected": "hype",
+    "max_score": 2
+  },
+  {
+    "title": "10 ways AI will change your life by 2025",
+    "summary": "From self-driving cars to AI doctors, the next few years will bring astonishing changes powered by artificial intelligence. Experts predict AI will soon diagnose diseases better than human doctors, write better code than human engineers, and create art indistinguishable from human masters. The future is arriving faster than you think.",
+    "source": "Business Insider",
+    "expected": "hype",
+    "max_score": 2
+  },
+  {
+    "title": "Introducing GenIQ: The AI platform that thinks like your best employee",
+    "summary": "We're thrilled to announce GenIQ, our revolutionary AI platform that understands your business context and delivers intelligent automation across all your workflows. GenIQ uses our proprietary NeuroSync technology to learn your company's unique DNA and deliver personalized AI experiences. Sign up for early access today.",
+    "source": "GenIQ Blog",
+    "expected": "hype",
+    "max_score": 2
+  },
+  {
+    "title": "The AI race is heating up — here's who's winning",
+    "summary": "With OpenAI, Google, Anthropic, and dozens of startups all racing to build the most powerful AI, the competition has never been fiercer. Industry analysts are divided on who will come out on top, but everyone agrees the stakes have never been higher. We spoke to 12 experts about what comes next.",
+    "source": "Wired",
+    "expected": "hype",
+    "max_score": 3
+  },
+  {
+    "title": "AI startup DataMind closes $200M seed round to disrupt data analytics",
+    "summary": "DataMind, an AI-powered analytics startup, today announced it has raised $200 million in seed funding, one of the largest seed rounds in history. The company plans to use the funds to hire top AI talent and accelerate product development. DataMind's platform promises to make data analytics 10x faster and more accurate.",
+    "source": "VentureBeat",
+    "expected": "hype",
+    "max_score": 2
+  },
+  {
+    "title": "ChatGPT reaches 100 million users — what this means for the future of AI",
+    "summary": "OpenAI's ChatGPT has reached 100 million users, making it the fastest-growing consumer application in history. This milestone signals a new era of mainstream AI adoption. Analysts say this is just the beginning as AI becomes embedded in every aspect of daily life and business operations.",
+    "source": "CNN Business",
+    "expected": "hype",
+    "max_score": 3
+  },
+  {
+    "title": "Why every company needs an AI strategy right now",
+    "summary": "The AI revolution is here and companies that wait risk extinction. From small businesses to Fortune 500 giants, every organization needs to develop a comprehensive AI strategy to survive and thrive in the new economy. Our AI readiness framework helps leaders navigate this crucial transformation.",
+    "source": "Harvard Business Review",
+    "expected": "hype",
+    "max_score": 3
+  },
+  {
+    "title": "NovaMind AI announces partnership with 3 unnamed Fortune 500 companies",
+    "summary": "NovaMind AI is pleased to announce partnerships with three Fortune 500 companies across healthcare, finance, and retail sectors. While we cannot name our partners at this time, these deals validate our enterprise AI platform and position us as the leader in intelligent automation. We look forward to announcing more partnerships soon.",
+    "source": "NovaMind Press Release",
+    "expected": "hype",
+    "max_score": 1
+  }
+]
