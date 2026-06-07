@@ -59,6 +59,16 @@ Investigator (on demand)
   → Tavily web search + Claude synthesis
 ```
 
+## Eval
+
+A smoke test validates the classifier against 20 ground truth cases -- 10 obvious signal (peer-reviewed papers, practitioner deployment posts) and 10 obvious hype (press releases, funding announcements, prediction pieces).
+
+```
+python eval.py
+```
+
+Current baseline: 20/20 (100%).
+
 ## Author
 
 Martin Strell — [linkedin.com/in/martin-strell-15298a](https://linkedin.com/in/martin-strell-15298a)
