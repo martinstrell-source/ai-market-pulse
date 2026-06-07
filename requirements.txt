@@ -1,0 +1,7 @@
+anthropic
+feedparser
+requests
+streamlit
+python-dotenv
+supabase
+tavily-python
