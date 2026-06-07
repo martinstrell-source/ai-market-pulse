@@ -1,6 +1,6 @@
 import streamlit as st
 from pipeline import run
-from db import get_all, save
+from db import get_all, save, get_latest_briefing
 from orchestrator import run_orchestrator
 from source_validator import validate_source, add_source, remove_source, get_sources
 from investigator import investigate
@@ -18,9 +18,20 @@ with st.sidebar:
     if st.button("Fetch & Classify New Items", type="primary"):
         with st.spinner("Fetching and classifying..."):
             run(limit=limit)
-    if st.button("Run Orchestrator Briefing"):
+    if st.button("Refresh Briefing"):
         with st.spinner("Analyzing..."):
             st.session_state.briefing = run_orchestrator()
+            from db import save_briefing
+            save_briefing(st.session_state.briefing)
+
+# Load latest briefing from Supabase if not in session
+if "briefing" not in st.session_state:
+    try:
+        stored = get_latest_briefing()
+        if stored:
+            st.session_state.briefing = stored
+    except Exception as e:
+        st.warning(f"Could not load briefing: {e}")
 
 # Tabs
 tab_feed, tab_briefing, tab_sources = st.tabs(["Feed", "Briefing", "Sources"])

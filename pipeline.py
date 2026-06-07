@@ -1,6 +1,7 @@
 from fetcher import fetch_all
 from classifier import classify_item
-from db import seen, save
+from db import seen, save, save_briefing
+from orchestrator import run_orchestrator
 import json
 
 def run(limit: int = 5):
@@ -27,6 +28,15 @@ def run(limit: int = 5):
             print(f"  {classification['reason']}\n")
         except Exception as e:
             print(f"Error classifying '{item.title}': {e}\n")
+
+    # Run orchestrator and save briefing
+    print("\nRunning orchestrator briefing...")
+    try:
+        briefing = run_orchestrator()
+        save_briefing(briefing)
+        print(f"Briefing saved: {briefing.get('summary', '')[:100]}")
+    except Exception as e:
+        print(f"Error running orchestrator: {e}")
 
     return results
 
