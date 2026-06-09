@@ -14,6 +14,7 @@ with st.sidebar:
     st.header("Controls")
     min_signal = st.slider("Minimum signal score", 0, 10, 5)
     show_worth_reading = st.checkbox("Worth reading only", value=True)
+    days_filter = st.selectbox("Show items from", [7, 14, 30, 90, 999], format_func=lambda x: "All time" if x == 999 else f"Last {x} days")
     limit = st.slider("Items to fetch", 5, 25, 10)
     if st.button("Fetch & Classify New Items", type="primary"):
         with st.spinner("Fetching and classifying..."):
@@ -38,10 +39,13 @@ tab_feed, tab_briefing, tab_sources = st.tabs(["Feed", "Briefing", "Sources"])
 
 # Feed tab
 with tab_feed:
+    from datetime import datetime, timezone, timedelta
     results = get_all(limit=200)
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days_filter)
     filtered = [r for r in results
                 if r["signal_score"] >= min_signal
-                and (not show_worth_reading or r["worth_reading"])]
+                and (not show_worth_reading or r["worth_reading"])
+                and (days_filter == 999 or datetime.fromisoformat(r["created_at"]) >= cutoff)]
 
     st.markdown(f"**{len(filtered)} items** match your filters ({len(results)} total)")
     st.divider()
