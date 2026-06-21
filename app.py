@@ -3,11 +3,17 @@ from pipeline import run
 from db import get_all, save, get_latest_briefing
 from orchestrator import run_orchestrator
 from source_validator import validate_source, add_source, remove_source, get_sources
-from investigator import investigate
 
 st.set_page_config(page_title="AI Market Pulse", layout="wide")
 st.title("AI Market Pulse")
 st.caption("Signal over hype.")
+
+
+# Cache the feed query so it doesn't hit Supabase on every rerun (slider drag,
+# button click, etc.). Cleared explicitly after a fetch or an override save.
+@st.cache_data(ttl=60)
+def load_items(limit: int = 50) -> list[dict]:
+    return get_all(limit=limit)
 
 # Sidebar controls
 with st.sidebar:
@@ -19,6 +25,7 @@ with st.sidebar:
     if st.button("Fetch & Classify New Items", type="primary"):
         with st.spinner("Fetching and classifying..."):
             run(limit=limit)
+        load_items.clear()
     if st.button("Refresh Briefing"):
         with st.spinner("Analyzing..."):
             st.session_state.briefing = run_orchestrator()
@@ -40,7 +47,7 @@ tab_feed, tab_briefing, tab_sources = st.tabs(["Feed", "Briefing", "Sources"])
 # Feed tab
 with tab_feed:
     from datetime import datetime, timezone, timedelta
-    results = get_all(limit=200)
+    results = load_items(limit=50)
     cutoff = datetime.now(timezone.utc) - timedelta(days=days_filter)
     filtered = [r for r in results
                 if r["signal_score"] >= min_signal
@@ -69,6 +76,7 @@ with tab_feed:
                 )
                 if st.button("Save override", key=f"btn_{item['url']}"):
                     save({**item, "override_score": override, "override_note": note})
+                    load_items.clear()
                     st.success("Saved")
         with col2:
             display_score = item.get("override_score") or item["signal_score"]
@@ -109,6 +117,9 @@ with tab_briefing:
 
                         inv_key = f"investigation_{idx}"
                         if st.button("Investigate", key=f"inv_btn_{idx}"):
+                            # Imported lazily so Tavily/investigator aren't loaded
+                            # on every launch — only when Investigate is clicked.
+                            from investigator import investigate
                             with st.spinner("Searching and analyzing..."):
                                 st.session_state[inv_key] = investigate(
                                     item=i.get("item", ""),

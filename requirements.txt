@@ -1,7 +1,7 @@
-anthropic
-feedparser
-requests
-streamlit
-python-dotenv
-supabase
-tavily-python
+anthropic==0.105.2
+feedparser==6.0.12
+requests==2.34.2
+streamlit==1.58.0
+python-dotenv==1.2.2
+supabase==2.31.0
+tavily-python==0.7.25
